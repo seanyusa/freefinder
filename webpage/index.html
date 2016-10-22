@@ -186,6 +186,7 @@
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="js/index.js"></script>
+    <script src="js/moment.js"></script>
     <script src="js/handlebars-v4.0.5.js"></script>
 
     <script>
@@ -196,7 +197,7 @@
             var source = $("#entry-template").html();
             for (var i = 0, len = data.events.length; i < len; i++) {
               console.log(data.events[i].startTime);
-              var startTime = new Date(parseInt(data.events[i].startTime));
+              var startTime = moment(data.events[i].startTime).format("dddd, MMMM Do h:mm a");
               data.events[i].startTime = startTime;
             }
             console.log(JSON.stringify(data));

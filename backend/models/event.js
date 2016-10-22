@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     freeSwag: { 
       type: DataTypes.BOOLEAN },
     startTime: { 
-      type: DataTypes.BIGINT, 
+      type: DataTypes.DATE, 
       allowNull: false },
     hyperlink: { 
       type: DataTypes.STRING, 

@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
   var description = req.body.description;
   var freeFood = req.body.freeFood;
   var freeSwag = req.body.freeSwag;
-  var startTime = req.body.startTime;
+  var startTime = new Date(req.body.startTime);
   var hyperlink = req.body.hyperlink;
   console.log(JSON.stringify(req.body));
 
