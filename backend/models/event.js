@@ -9,16 +9,20 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false },
     description: { 
       type: DataTypes.STRING },
-    freeFood: { 
-      type: DataTypes.BOOLEAN },
-    freeSwag: { 
-      type: DataTypes.BOOLEAN },
     startTime: { 
       type: DataTypes.DATE, 
       allowNull: false },
     hyperlink: { 
       type: DataTypes.STRING, 
-      allowNull: true }
+      allowNull: true },
+    location: {
+      type: DataTypes.STRING },
+    freeFood: { 
+      type: DataTypes.BOOLEAN },
+    freeSwag: { 
+      type: DataTypes.BOOLEAN },
+    needRSVP: { 
+      type: DataTypes.BOOLEAN }
   }, {
     timestamps: false,
     classMethods: {

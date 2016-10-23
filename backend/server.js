@@ -28,6 +28,7 @@ var allowCrossDomain = function(req, res, next) {
 };
 app.use(allowCrossDomain);
 
+// Webpage server
 app.use('/webapp', express.static('../webpage'));
 app.set('port', 2400);
 

@@ -22,20 +22,24 @@ router.post('/', function(req, res) {
   console.log('Request: POST /events');
   var eventTitle = req.body.eventTitle;
   var description = req.body.description;
-  var freeFood = req.body.freeFood;
-  var freeSwag = req.body.freeSwag;
   var startTime = new Date(req.body.startTime);
   var hyperlink = req.body.hyperlink;
+  var location = req.body.location;
+  var freeFood = req.body.freeFood;
+  var freeSwag = req.body.freeSwag;
+  var needRSVP = req.body.needRSVP;
   console.log(JSON.stringify(req.body));
 
   models.Event
   .create({ 
     eventTitle: eventTitle, 
     description: description, 
+    startTime: startTime, 
+    hyperlink: hyperlink,
+    location: location,
     freeFood: freeFood, 
     freeSwag: freeSwag,
-    startTime: startTime, 
-    hyperlink: hyperlink })
+    needRSVP: needRSVP })
   .then(function() {
     models.Event
       .findOrCreate({where: { /*eventTitle: eventTitle*/ }, defaults: {}})

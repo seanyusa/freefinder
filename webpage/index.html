@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Material Design - Responsive Table</title>
+    <title>Free Food Finder</title>
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
 
@@ -21,8 +21,8 @@
   <body>
 
     <div id="demo">
-  <h1>Material Design Responsive Table</h1>
-  <h2>Table of my other Material Design works (list was updated 08.2015)</h2>
+  <h1>Free Food Finder</h1>
+  <h2>Find free food and free t-shirts! For freeeeeeeee!</h2>
   
   <!-- Responsive table starts here -->
   <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
@@ -34,7 +34,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Link</th>
-          <th>Status</th>
+          <th>Time</th>
         </tr>
       </thead>
       <tbody id="table-content">
@@ -199,6 +199,8 @@
               console.log(data.events[i].startTime);
               var startTime = moment(data.events[i].startTime).format("dddd, MMMM Do h:mm a");
               data.events[i].startTime = startTime;
+              var eventTitle = data.events[i].eventTitle;
+              data.events[i].eventTitle = eventTitle.substring(0, Math.min(55, eventTitle.length));
             }
             console.log(JSON.stringify(data));
             console.log(source)
