@@ -28,7 +28,7 @@ var allowCrossDomain = function(req, res, next) {
 };
 app.use(allowCrossDomain);
 
-
+app.use('/webapp', express.static('../webpage'));
 app.set('port', 2400);
 
 models.sequelize.sync({ force: clearDb }).then(function () {
