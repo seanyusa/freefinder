@@ -1,14 +1,20 @@
 var express = require('express');
 var Sequelize = require('sequelize');
-var models  = require("./models");
-
 var bodyParser = require('body-parser');
+console.log('loaded all node modules');
+
+var models  = require("./models");
+console.log('Required ./models.');
+
 var app = express();
+console.log('Express successfully started');
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+console.log('Use bodyParser with Express');
 
 var router = require('./routes')(app);
+console.log('Required ./routes');
 
 // USE: server [cleardb]
 
@@ -19,6 +25,7 @@ process.argv.forEach(function (val, index, array) {
   if(val === 'cleardb') clearDb = true;
 });
 console.log('cleardb: ' + clearDb);
+console.log('Read all command line arguments.');
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -27,10 +34,14 @@ var allowCrossDomain = function(req, res, next) {
     next();
 };
 app.use(allowCrossDomain);
+console.log('Set Access control headers');
 
 // Webpage server
 app.use('/webapp', express.static('../webpage'));
-app.set('port', 2400);
+console.log('Started static webapp service.');
+
+app.set('port', process.env.PORT || 2400);
+console.log('Set port successfully to ' + process.env.PORT || 2400);
 
 models.sequelize.sync({ force: clearDb }).then(function () {
   var server = app.listen(app.get('port'), function() {
