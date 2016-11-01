@@ -1,0 +1,6 @@
+framework module Pods_FreeFinder {
+  umbrella header "Pods-FreeFinder-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142A1F2F1DC84A5400C605B8 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */; };
 		14A227A31DC83FD200179655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227A21DC83FD200179655 /* AppDelegate.swift */; };
 		14A227A51DC83FD200179655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227A41DC83FD200179655 /* ViewController.swift */; };
 		14A227A81DC83FD200179655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A227A61DC83FD200179655 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
 		14A2279F1DC83FD200179655 /* FreeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A227A21DC83FD200179655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A227A41DC83FD200179655 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		142A1F301DC84B2800C605B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		14A227961DC83FD200179655 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +97,7 @@
 		14A227A11DC83FD200179655 /* FreeFinder */ = {
 			isa = PBXGroup;
 			children = (
+				142A1F301DC84B2800C605B8 /* Models */,
 				14A227C81DC8438100179655 /* Services */,
 				14A227C71DC8436C00179655 /* ViewControllers */,
 				14A227A21DC83FD200179655 /* AppDelegate.swift */,
@@ -121,6 +131,7 @@
 		14A227C81DC8438100179655 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -288,7 +299,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -301,6 +312,7 @@
 				14A227C61DC8425200179655 /* MainTableViewController.swift in Sources */,
 				14A227A51DC83FD200179655 /* ViewController.swift in Sources */,
 				14A227AB1DC83FD200179655 /* FreeFinder.xcdatamodeld in Sources */,
+				142A1F2F1DC84A5400C605B8 /* RestApiManager.swift in Sources */,
 				14A227A31DC83FD200179655 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
