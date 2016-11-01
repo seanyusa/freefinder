@@ -9,12 +9,14 @@ var router = express.Router();
 // ----- GET /events - Get list of all events. -----
 router.get('/', function(req, res){
   console.log('Request: GET /events');
-  models.Event.findAll()
-    .then(function(events) {
-      res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify({events: events}));
-      console.log('All events sent');
-    })
+  models.Event.findAll({
+    order: 'startTime'
+  })
+  .then(function(events) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({events: events}));
+    console.log('All events sent');
+  })
 });
 
 // ----- POST /events - Create new event. -----
@@ -25,6 +27,7 @@ router.post('/', function(req, res) {
   var startTime = new Date(req.body.startTime);
   var hyperlink = req.body.hyperlink;
   var location = req.body.location;
+  var extractedFrom = req.body.extractedFrom;
   var freeFood = req.body.freeFood;
   var freeSwag = req.body.freeSwag;
   var needRSVP = req.body.needRSVP;
@@ -37,6 +40,7 @@ router.post('/', function(req, res) {
     startTime: startTime, 
     hyperlink: hyperlink,
     location: location,
+    extractedFrom: extractedFrom,
     freeFood: freeFood, 
     freeSwag: freeSwag,
     needRSVP: needRSVP })
@@ -141,8 +145,8 @@ router.post('/:eventId', function(req, res){
     
 // });
 
-router.delete('/delete', function(req, res){
-  console.log('Request: DELETE ALL /events/delete');
+router.delete('/', function(req, res){
+  console.log('Request: DELETE ALL /events');
   models.Event.sync({ force : true }) // drops table and re-creates it
     .success(function() {
       console.log('Cleared all events');

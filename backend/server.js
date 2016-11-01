@@ -13,7 +13,8 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 console.log('Use bodyParser with Express');
 
-var router = require('./routes')(app);
+var apiRouter = require('./routes');
+app.use('/api', apiRouter)
 console.log('Required ./routes');
 
 // USE: server [cleardb]
@@ -27,17 +28,17 @@ process.argv.forEach(function (val, index, array) {
 console.log('cleardb: ' + clearDb);
 console.log('Read all command line arguments.');
 
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-};
-app.use(allowCrossDomain);
-console.log('Set Access control headers');
+// var allowCrossDomain = function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     next();
+// };
+// app.use(allowCrossDomain);
+// console.log('Set Access control headers');
 
 // Webpage server
-app.use('/webapp', express.static('../webpage'));
+app.use('/', express.static('./webpage'));
 console.log('Started static webapp service.');
 
 app.set('port', process.env.PORT || 2400);
@@ -57,7 +58,7 @@ models.sequelize.sync({ force: clearDb }).then(function () {
   });
 });
 
-app.get('/', function(req, res){
+app.get('/api', function(req, res){
   console.log('Request: GET /');
   res.setHeader('Content-Type', 'application/json');
   res.send( {'message': 'FreeFinder REST API backend'});

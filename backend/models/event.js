@@ -17,6 +17,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true },
     location: {
       type: DataTypes.STRING },
+    extractedFrom: {
+      type: DataTypes.STRING },
     freeFood: { 
       type: DataTypes.BOOLEAN },
     freeSwag: { 
