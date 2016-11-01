@@ -141,4 +141,16 @@ router.post('/:eventId', function(req, res){
     
 // });
 
+router.delete('/delete', function(req, res){
+  console.log('Request: DELETE ALL /events/delete');
+  models.Event.sync({ force : true }) // drops table and re-creates it
+    .success(function() {
+      console.log('Cleared all events');
+      res.send(JSON.stringify({'message' : 'cleared all events.'}));
+    })
+    .error(function(err) {
+      res.status(500).send('Error encountered: ' + err);
+    });
+});
+
 module.exports = router;

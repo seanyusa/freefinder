@@ -12,10 +12,15 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "pg": "^6.1.0",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^3.24.5",
     "tedious": "^1.14.0"
   },
+  "devDependencies": {
+    "tedious": "^1.14.0"
+  },
   "engines": {
-    "node": "~0.10.0 || ~4.2.0"
+    "node": "~6.9.0"
   }
 }
