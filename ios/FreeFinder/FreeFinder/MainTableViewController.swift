@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MainTableViewController: UITableViewController {
+    
+    var data: JSON = JSON("{events: []}")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        RestApiManager.getEvents()
+        RestApiManager.shared.getEvents(completion: { data in
+            print(self.data = data)
+            self.tableView.reloadData()
+            print(self.data)
+        })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,14 +43,15 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return data["events"].count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
 
-        cell.textLabel?.text = "TEST"
+        cell.textLabel?.text = data["events"][indexPath.item]["eventTitle"].string
+        cell.detailTextLabel?.text = data["events"][indexPath.item]["startTime"].string
 
         return cell
     }
