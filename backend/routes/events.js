@@ -25,6 +25,7 @@ router.post('/', function(req, res) {
   var eventTitle = req.body.eventTitle;
   var description = req.body.description;
   var startTime = new Date(req.body.startTime);
+  var endTime = new Date(req.body.endTime);
   var hyperlink = req.body.hyperlink;
   var location = req.body.location;
   var extractedFrom = req.body.extractedFrom;
@@ -38,6 +39,7 @@ router.post('/', function(req, res) {
     eventTitle: eventTitle, 
     description: description, 
     startTime: startTime, 
+    endTime: endTime,
     hyperlink: hyperlink,
     location: location,
     extractedFrom: extractedFrom,
@@ -75,12 +77,12 @@ router.get('/:eventId', function(req, res){
       return
     }
     res.setHeader('Content-Type', 'application/json');
-    //res.send(JSON.stringify(event));
+    res.send(JSON.stringify(event));
     console.log('Event ' + eventId + ' sent');
   })
   .catch(function(err) {
     console.log('ERROR:' + err)
-    res.status(500).send('Error encountered: ' + err);
+    res.status(500).send( {'message': 'Error encountered: ' + err } );
   })
   console.log('Requested for Event.'); 
 });
@@ -91,6 +93,7 @@ router.post('/:eventId', function(req, res){
   var eventTitle = req.body.eventTitle;
   var description = req.body.description;
   var startTime = new Date(req.body.startTime);
+  var endTime = new Date(req.body.endTime);
   var hyperlink = req.body.hyperlink;
   var location = req.body.location;
   var extractedFrom = req.body.extractedFrom;
@@ -98,7 +101,7 @@ router.post('/:eventId', function(req, res){
   var freeSwag = req.body.freeSwag;
   var needRSVP = req.body.needRSVP;
 
-  console.log('Request: GET /events/' + eventId);
+  console.log('Request: POST /events/' + eventId);
 
   models.Event.findById(eventId).then(function(event) {
     if(event == null) {
@@ -110,6 +113,7 @@ router.post('/:eventId', function(req, res){
       eventTitle: eventTitle, 
       description: description, 
       startTime: startTime, 
+      endTime: endTime,
       hyperlink: hyperlink,
       location: location,
       extractedFrom: extractedFrom,
@@ -123,34 +127,33 @@ router.post('/:eventId', function(req, res){
   })
   .catch(function(err) {
     console.log('ERROR:' + err)
-    res.status(500).send('Error encountered: ' + err);
+    res.status(500).send({'message': 'Error encountered: ' + err });
   })
   console.log('Updated event: ' + eventname); 
 });
 
 // ----- DELETE /events/eventid - Delete a specific event. -----
-// router.delete('/:eventId', function(req, res){
-//   var eventId = req.params.eventId;
-//   console.log('Request: DELETE /events/' + eventId);
+router.delete('/:eventId', function(req, res){
+  var eventId = req.params.eventId;
+  console.log('Request: DELETE /events/' + eventId);
+  models.Event.findById(eventId).then(function(event) {
+    if(event == null) {
+      res.status(404).send( {'message': 'Event not found'} );
+      console.log('Event with id: ' + eventId + ' not found.');
+      return
+    }
+    event.destroy({ force: true });
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(event));
+    console.log('Event with id ' + eventId + ' sent');
+    console.log('Deleted event with id:' + eventId);
+  })
+  .catch(function(err) {
+    res.status(500).send('Error encountered: ' + err);
+  })
+});
 
-//   models.Event.findById(eventId).then(function(event) {
-//     if(event == null) {
-//       res.status(404).send( {'message': 'Event not found'} );
-//       console.log('Event ' + eventId + ' not found.');
-//       return
-//     }
-//     event.destroy({ force: true });
-//     res.setHeader('Content-Type', 'application/json');
-//     res.send( { 'message': 'DELETED event: ' + event.eventname } );
-//     console.log('Deleted ' + eventId + ' sent');
-//   })
-//   .catch(function(err) {
-//     res.status(500).send('Error encountered: ' + err);
-//   })
-//   console.log('Requested for Org.');
-    
-// });
-
+// ------ DELETE all events ---------
 router.delete('/', function(req, res){
   console.log('Request: DELETE ALL /events');
   models.Event.sync({ force : true }) // drops table and re-creates it

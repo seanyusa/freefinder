@@ -28,5 +28,21 @@ router.get('/', function(req, res){
   });
 });
 
+router.get('/expired', function(req, res){
+  console.log('Request: Getting expired events');
+
+  models.Event.findAll({
+    where: {
+      startTime: {
+        $lt: new Date()
+      }
+    }
+  }).then(function(events) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({events: events}));
+    console.log('All events sent');
+  });
+});
+
 
 module.exports = router;

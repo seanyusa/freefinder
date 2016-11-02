@@ -12,6 +12,9 @@ module.exports = function(sequelize, DataTypes) {
     startTime: { 
       type: DataTypes.DATE, 
       allowNull: false },
+    endTime: { 
+      type: DataTypes.DATE, 
+      allowNull: true },
     hyperlink: { 
       type: DataTypes.STRING, 
       allowNull: true },

@@ -8,8 +8,8 @@ var router = express.Router();
 
 // ----- GET /eventarchives - Get list of all events. -----
 router.get('/', function(req, res) {
-  console.log('Request: GET /eventarchives');
-  models.EventArchive.findAll({
+  console.log('Request: GET /archivedevents');
+  models.ArchivedEvent.findAll({
     order: 'startTime'
   })
   .then(function(events) {
@@ -21,10 +21,12 @@ router.get('/', function(req, res) {
 
 // ----- POST /events - Create new event. -----
 router.post('/', function(req, res) {
-  console.log('Request: POST /eventsarchives');
+  console.log('Request: POST /archivedevents');
+  var id = req.body.id;
   var eventTitle = req.body.eventTitle;
   var description = req.body.description;
   var startTime = new Date(req.body.startTime);
+  var endTime = new Date(req.body.endTime);
   var hyperlink = req.body.hyperlink;
   var location = req.body.location;
   var extractedFrom = req.body.extractedFrom;
@@ -33,11 +35,13 @@ router.post('/', function(req, res) {
   var needRSVP = req.body.needRSVP;
   console.log(JSON.stringify(req.body));
 
-  models.EventArchive
+  models.ArchivedEvent
   .create({ 
+    id: id,
     eventTitle: eventTitle, 
     description: description, 
     startTime: startTime, 
+    endTime: endTime,
     hyperlink: hyperlink,
     location: location,
     extractedFrom: extractedFrom,
@@ -45,8 +49,8 @@ router.post('/', function(req, res) {
     freeSwag: freeSwag,
     needRSVP: needRSVP })
   .then(function() {
-    models.EventArchive
-      .findOrCreate({where: { /*eventTitle: eventTitle*/ }, defaults: {}})
+    models.ArchivedEvent
+      .findOrCreate({where: {}, defaults: {}})
       .spread(function(event, created) {
         console.log('Created event: ' + eventTitle );
         res.setHeader('Content-Type', 'application/json');
@@ -68,7 +72,7 @@ router.get('/:eventId', function(req, res){
   var eventId = req.params.eventId;
   console.log('Request: GET /events/' + eventId);
 
-  models.EventArchive.findById(eventId).then(function(event) {
+  models.ArchivedEvent.findById(eventId).then(function(event) {
     if(event == null) {
       res.status(404).send( {'message': 'Event not found'} );
       console.log('Event ' + eventId + ' not found.');
@@ -106,8 +110,8 @@ router.get('/:eventId', function(req, res){
 // });
 
 router.delete('/', function(req, res){
-  console.log('Request: DELETE ALL /events');
-  models.EventArchive.sync({ force : true }) // drops table and re-creates it
+  console.log('Request: DELETE ALL /archivedevents');
+  models.ArchivedEvent.sync({ force : true }) // drops table and re-creates it
     .success(function() {
       console.log('Cleared all events');
       res.send(JSON.stringify({'message' : 'cleared all events.'}));

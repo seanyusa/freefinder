@@ -1,9 +1,9 @@
-// EventArchive model - eventArchive.js
+// ArchivedEvent model - archivedEvent.js
 
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var EventArchive = sequelize.define("EventArchive", {
+  var ArchivedEvent = sequelize.define("ArchivedEvent", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -17,6 +17,9 @@ module.exports = function(sequelize, DataTypes) {
     startTime: { 
       type: DataTypes.DATE, 
       allowNull: false },
+    endTime: { 
+      type: DataTypes.DATE, 
+      allowNull: true },
     hyperlink: { 
       type: DataTypes.STRING, 
       allowNull: true },
@@ -39,5 +42,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return EventArchive;
+  return ArchivedEvent;
 };
