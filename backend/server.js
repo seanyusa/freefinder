@@ -42,7 +42,7 @@ app.use('/', express.static('./webpage'));
 console.log('Started static webapp service.');
 
 app.set('port', process.env.PORT || 2400);
-console.log('Set port successfully to ' + process.env.PORT || 2400);
+console.log('Set port successfully to ' + (process.env.PORT || 2400));
 
 models.sequelize.sync({ force: clearDb }).then(function () {
   var server = app.listen(app.get('port'), function() {

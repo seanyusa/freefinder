@@ -192,7 +192,7 @@
     <script>
       $(document).ready(function() {
           $.ajax({
-            url: "http://localhost:2400/events"
+            url: "http://localhost:2400/api/events"
           }).then(function(data) {
             var source = $("#entry-template").html();
             for (var i = 0, len = data.events.length; i < len; i++) {
