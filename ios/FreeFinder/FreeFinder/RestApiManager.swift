@@ -15,7 +15,7 @@ class RestApiManager {
     static let shared = RestApiManager()
     
     func getEvents(completion: @escaping (_ data: JSON) -> Void) {
-        Alamofire.request("http://172.16.4.11:2400/events/").responseJSON { response in
+        Alamofire.request("http://freefoodfinders.seanywang.com/api/events/").responseJSON { response in
 //            print(response.request)  // original URL request
 //            print(response.response) // HTTP URL response
 //            print(response.data)     // server data

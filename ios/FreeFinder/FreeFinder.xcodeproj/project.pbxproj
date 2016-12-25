@@ -16,6 +16,7 @@
 		14A227B01DC83FD200179655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A227AE1DC83FD200179655 /* LaunchScreen.storyboard */; };
 		14A227BB1DC83FD200179655 /* FreeFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227BA1DC83FD200179655 /* FreeFinderTests.swift */; };
 		14A227C61DC8425200179655 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227C51DC8425200179655 /* MainTableViewController.swift */; };
+		14A2B7571E0F8E210016801F /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2B7561E0F8E210016801F /* EventDetailsViewController.swift */; };
 		D47DF7C188420CC820A8F402 /* Pods_FreeFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93BA0493536EAE612C8D09D /* Pods_FreeFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		14A227BA1DC83FD200179655 /* FreeFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFinderTests.swift; sourceTree = "<group>"; };
 		14A227BC1DC83FD200179655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A227C51DC8425200179655 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		14A2B7561E0F8E210016801F /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		C93BA0493536EAE612C8D09D /* Pods_FreeFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54927283C489732DCCE2E10 /* Pods-FreeFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFinder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FreeFinder/Pods-FreeFinder.release.xcconfig"; sourceTree = "<group>"; };
 		F9EBBCFBC659295B16B294C4 /* Pods-FreeFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FreeFinder/Pods-FreeFinder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				14A227A41DC83FD200179655 /* ViewController.swift */,
 				14A227C51DC8425200179655 /* MainTableViewController.swift */,
+				14A2B7561E0F8E210016801F /* EventDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A2B7571E0F8E210016801F /* EventDetailsViewController.swift in Sources */,
 				14A227C61DC8425200179655 /* MainTableViewController.swift in Sources */,
 				14A227A51DC83FD200179655 /* ViewController.swift in Sources */,
 				14A227AB1DC83FD200179655 /* FreeFinder.xcdatamodeld in Sources */,

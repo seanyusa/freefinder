@@ -49,10 +49,22 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
-
-        cell.textLabel?.text = data["events"][indexPath.item]["eventTitle"].string
-        cell.detailTextLabel?.text = data["events"][indexPath.item]["startTime"].string
-
+        
+        // Move string conversion to data first load, for efficiency.
+        let startTimeString: String = data["events"][indexPath.item]["startTime"].string!
+        let eventTitle: String = data["events"][indexPath.item]["eventTitle"].string!
+        cell.textLabel?.text = (eventTitle.characters.count > 25) ? eventTitle.substring(to: eventTitle.index(eventTitle.startIndex, offsetBy: 25)) + "..." : eventTitle
+        
+        print(cell.detailTextLabel?.text)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let startTime: Date = formatter.date(from: startTimeString)!
+        
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        print(formatter.string(from: startTime))
+        cell.detailTextLabel?.text = formatter.string(from: startTime)
+        
         return cell
     }
  
@@ -92,14 +104,17 @@ class MainTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        (segue.destination as! EventDetailsViewController).eventData = data["events"][(self.tableView.indexPath(for: sender as! UITableViewCell)?.item)!]
+        
     }
-    */
 
 }
