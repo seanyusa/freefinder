@@ -3,5 +3,6 @@ use_frameworks!
 
 target 'FreeFinder' do
     pod 'SwiftyJSON'
+    pod 'JSONJoy-Swift', '~> 3.0.0'
     pod 'Alamofire', '~> 4.0'
 end

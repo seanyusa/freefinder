@@ -7,8 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
-    },
+      primaryKey: true },
+    campusId: {
+      type: DataTypes.INTEGER,
+      allowNull: true},
     eventTitle: { 
       type: DataTypes.STRING,
       allowNull: false },
@@ -18,18 +20,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE, 
       allowNull: false },
     endTime: { 
-      type: DataTypes.DATE, 
-      allowNull: true },
+      type: DataTypes.DATE },
     hyperlink: { 
-      type: DataTypes.STRING, 
-      allowNull: true },
+      type: DataTypes.STRING },
     location: {
       type: DataTypes.STRING },
+    geoLat: {
+      type: DataTypes.DOUBLE },
+    geoLong: {
+      type: DataTypes.DOUBLE },
     extractedFrom: {
       type: DataTypes.STRING },
     freeFood: { 
       type: DataTypes.BOOLEAN },
     freeSwag: { 
+      type: DataTypes.BOOLEAN },
+    bringResume: { 
       type: DataTypes.BOOLEAN },
     needRSVP: { 
       type: DataTypes.BOOLEAN }

@@ -48,12 +48,12 @@ class MainTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
         
         // Move string conversion to data first load, for efficiency.
         let startTimeString: String = data["events"][indexPath.item]["startTime"].string!
         let eventTitle: String = data["events"][indexPath.item]["eventTitle"].string!
-        cell.textLabel?.text = (eventTitle.characters.count > 25) ? eventTitle.substring(to: eventTitle.index(eventTitle.startIndex, offsetBy: 25)) + "..." : eventTitle
+        cell.eventNameLabel.text = (eventTitle.characters.count > 25) ? eventTitle.substring(to: eventTitle.index(eventTitle.startIndex, offsetBy: 25)) + "..." : eventTitle
         
         print(cell.detailTextLabel?.text)
         let formatter = DateFormatter()
@@ -63,7 +63,7 @@ class MainTableViewController: UITableViewController {
         formatter.dateStyle = .short
         formatter.timeStyle = .short
         print(formatter.string(from: startTime))
-        cell.detailTextLabel?.text = formatter.string(from: startTime)
+        cell.eventSecondaryLabel.text = formatter.string(from: startTime)
         
         return cell
     }
