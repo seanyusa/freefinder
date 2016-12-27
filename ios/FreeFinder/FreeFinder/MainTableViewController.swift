@@ -112,7 +112,7 @@ class MainTableViewController: UITableViewController {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
-        (segue.destination as! EventDetailsViewController).eventData = data["events"][(self.tableView.indexPath(for: sender as! UITableViewCell)?.item)!]
+        (segue.destination as! EventDetailsViewController).event = events[(self.tableView.indexPath(for: sender as! UITableViewCell)?.item)!]
         
     }
 

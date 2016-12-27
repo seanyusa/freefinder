@@ -11,11 +11,11 @@ import SwiftyJSON
 
 class EventDetailsViewController: UIViewController {
     
-    var eventData: JSON = JSON("")
+    var event: Event?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = eventData["eventTitle"].string!
+        self.title = event?.eventTitle
         // Do any additional setup after loading the view.
 //        print(eventData)
     }

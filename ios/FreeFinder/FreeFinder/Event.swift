@@ -53,4 +53,5 @@ struct Event : JSONJoy {
         bringResume = decoder["bringResume"].getOptional()
         needRSVP = decoder["needRSVP"].getOptional()
     }
+    
 }
