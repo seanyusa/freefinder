@@ -12,6 +12,11 @@
 		14189E501E11F459006AEF92 /* resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 14189E4F1E11F459006AEF92 /* resume.png */; };
 		14189E531E11F670006AEF92 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14189E521E11F670006AEF92 /* EventTableViewCell.swift */; };
 		142A1F2F1DC84A5400C605B8 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */; };
+		143E7DF11E13200B0027E8CE /* tableau.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DF01E13200B0027E8CE /* tableau.png */; };
+		143E7DF71E13279D0027E8CE /* utcslogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DF61E13279D0027E8CE /* utcslogo.png */; };
+		143E7DF91E132B710027E8CE /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DF81E132B710027E8CE /* compass.png */; };
+		143E7DFB1E132B870027E8CE /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DFA1E132B870027E8CE /* calendar.png */; };
+		143E7DFD1E132BB10027E8CE /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DFC1E132BB10027E8CE /* flag.png */; };
 		145B20DE1E1302AA00CE2EEF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B20DD1E1302AA00CE2EEF /* Event.swift */; };
 		14A227A31DC83FD200179655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227A21DC83FD200179655 /* AppDelegate.swift */; };
 		14A227A51DC83FD200179655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227A41DC83FD200179655 /* ViewController.swift */; };
@@ -41,6 +46,11 @@
 		14189E4F1E11F459006AEF92 /* resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume.png; sourceTree = "<group>"; };
 		14189E521E11F670006AEF92 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
+		143E7DF01E13200B0027E8CE /* tableau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableau.png; sourceTree = "<group>"; };
+		143E7DF61E13279D0027E8CE /* utcslogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = utcslogo.png; sourceTree = "<group>"; };
+		143E7DF81E132B710027E8CE /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
+		143E7DFA1E132B870027E8CE /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		143E7DFC1E132BB10027E8CE /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
 		145B20DD1E1302AA00CE2EEF /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		14A2279F1DC83FD200179655 /* FreeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A227A21DC83FD200179655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,9 +92,14 @@
 		14189E4A1E11F423006AEF92 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				143E7DF01E13200B0027E8CE /* tableau.png */,
 				14189E4B1E11F448006AEF92 /* hot-dog.png */,
 				14189E4D1E11F454006AEF92 /* shirt.png */,
 				14189E4F1E11F459006AEF92 /* resume.png */,
+				143E7DF61E13279D0027E8CE /* utcslogo.png */,
+				143E7DF81E132B710027E8CE /* compass.png */,
+				143E7DFA1E132B870027E8CE /* calendar.png */,
+				143E7DFC1E132BB10027E8CE /* flag.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -276,11 +291,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				14189E501E11F459006AEF92 /* resume.png in Resources */,
+				143E7DF11E13200B0027E8CE /* tableau.png in Resources */,
 				14189E4C1E11F448006AEF92 /* hot-dog.png in Resources */,
+				143E7DF71E13279D0027E8CE /* utcslogo.png in Resources */,
 				14A227B01DC83FD200179655 /* LaunchScreen.storyboard in Resources */,
 				14189E4E1E11F454006AEF92 /* shirt.png in Resources */,
 				14A227AD1DC83FD200179655 /* Assets.xcassets in Resources */,
+				143E7DFB1E132B870027E8CE /* calendar.png in Resources */,
+				143E7DF91E132B710027E8CE /* compass.png in Resources */,
 				14A227A81DC83FD200179655 /* Main.storyboard in Resources */,
+				143E7DFD1E132BB10027E8CE /* flag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +516,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LG7K7LC5U8;
 				INFOPLIST_FILE = FreeFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanwang.FreeFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +532,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LG7K7LC5U8;
 				INFOPLIST_FILE = FreeFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanwang.FreeFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";

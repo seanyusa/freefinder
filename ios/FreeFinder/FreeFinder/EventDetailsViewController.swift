@@ -13,9 +13,25 @@ class EventDetailsViewController: UIViewController {
     
     var event: Event?
 
+    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBAction func button(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: (event?.hyperlink)!)!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = event?.eventTitle
+        self.title = "Event"
+        eventTitleLabel.text = event?.eventTitle
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .long
+        startTimeLabel.text = formatter.string(from: (event?.startTime)!)
+        locationLabel.text = event?.location
+        descriptionTextView.text = event?.description
+//        UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
         // Do any additional setup after loading the view.
 //        print(eventData)
     }

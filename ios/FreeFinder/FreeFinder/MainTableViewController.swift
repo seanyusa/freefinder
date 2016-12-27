@@ -12,12 +12,12 @@ import JSONJoy
 
 class MainTableViewController: UITableViewController {
     
-    var data: JSON = JSON("{events: []}")
     var events: [Event] = [Event]()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl?.addTarget(self, action: #selector(MainTableViewController.handleRefresh(refreshControl:)), for: .valueChanged)
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "Test string!")
         
         RestApiManager.shared.getEvents(completion: { data in
             for index in 0...data["events"].count - 1 {
@@ -43,6 +43,15 @@ class MainTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        print("REfereshing")
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
 
     // MARK: - Table view data source
