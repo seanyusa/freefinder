@@ -8,20 +8,31 @@
 
 import UIKit
 import SwiftyJSON
+import JSONJoy
 
 class MainTableViewController: UITableViewController {
     
     var data: JSON = JSON("{events: []}")
+    var events: [Event] = [Event]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         RestApiManager.shared.getEvents(completion: { data in
-            print(self.data = data)
+            for index in 0...data["events"].count - 1 {
+                let eventData = data["events"][index]
+                do {
+                    let event = try Event(JSONDecoder(eventData.rawString()!))
+                    self.events.append(event)
+                } catch {
+                    print("ERROR: Unable to parse JSON")
+                }
+            }
             self.tableView.reloadData()
-            print(self.data)
+            print(self.events)
         })
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,27 +54,15 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return data["events"].count
+        return events.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
         
-        // Move string conversion to data first load, for efficiency.
-        let startTimeString: String = data["events"][indexPath.item]["startTime"].string!
-        let eventTitle: String = data["events"][indexPath.item]["eventTitle"].string!
-        cell.eventNameLabel.text = (eventTitle.characters.count > 25) ? eventTitle.substring(to: eventTitle.index(eventTitle.startIndex, offsetBy: 25)) + "..." : eventTitle
-        
-        print(cell.detailTextLabel?.text)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        let startTime: Date = formatter.date(from: startTimeString)!
-        
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        print(formatter.string(from: startTime))
-        cell.eventSecondaryLabel.text = formatter.string(from: startTime)
+        cell.eventNameLabel.text = events[indexPath.item].eventTitlePrint
+        cell.eventSecondaryLabel.text = events[indexPath.item].startTimePrint
+        cell.eventLocationLabel.text = events[indexPath.item].location
         
         return cell
     }

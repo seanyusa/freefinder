@@ -24,6 +24,7 @@ class RestApiManager {
             if let JSON = response.result.value {
 //                print("JSON: \(JSON)")
             }
+//            completion(JSON(response.result.value))
             completion(JSON(response.result.value))
         }
     }

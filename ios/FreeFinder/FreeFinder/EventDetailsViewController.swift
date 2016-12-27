@@ -17,7 +17,7 @@ class EventDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.title = eventData["eventTitle"].string!
         // Do any additional setup after loading the view.
-        print(eventData)
+//        print(eventData)
     }
 
     override func didReceiveMemoryWarning() {
