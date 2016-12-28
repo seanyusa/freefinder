@@ -13,10 +13,14 @@
 		14189E531E11F670006AEF92 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14189E521E11F670006AEF92 /* EventTableViewCell.swift */; };
 		142A1F2F1DC84A5400C605B8 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */; };
 		143E7DF11E13200B0027E8CE /* tableau.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DF01E13200B0027E8CE /* tableau.png */; };
-		143E7DF71E13279D0027E8CE /* utcslogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DF61E13279D0027E8CE /* utcslogo.png */; };
 		143E7DF91E132B710027E8CE /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DF81E132B710027E8CE /* compass.png */; };
 		143E7DFB1E132B870027E8CE /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DFA1E132B870027E8CE /* calendar.png */; };
 		143E7DFD1E132BB10027E8CE /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DFC1E132BB10027E8CE /* flag.png */; };
+		143E7DFF1E1351BC0027E8CE /* source_logo_utcs.png in Resources */ = {isa = PBXBuildFile; fileRef = 143E7DFE1E1351BC0027E8CE /* source_logo_utcs.png */; };
+		143E7E011E13645C0027E8CE /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E7E001E13645C0027E8CE /* Week.swift */; };
+		143E7E031E13646C0027E8CE /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E7E021E13646C0027E8CE /* Sponsor.swift */; };
+		143E7E051E1364790027E8CE /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E7E041E1364790027E8CE /* Source.swift */; };
+		143E7E071E136A870027E8CE /* WeekParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E7E061E136A870027E8CE /* WeekParserService.swift */; };
 		145B20DE1E1302AA00CE2EEF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145B20DD1E1302AA00CE2EEF /* Event.swift */; };
 		14A227A31DC83FD200179655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227A21DC83FD200179655 /* AppDelegate.swift */; };
 		14A227A51DC83FD200179655 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A227A41DC83FD200179655 /* ViewController.swift */; };
@@ -47,10 +51,14 @@
 		14189E521E11F670006AEF92 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
 		143E7DF01E13200B0027E8CE /* tableau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableau.png; sourceTree = "<group>"; };
-		143E7DF61E13279D0027E8CE /* utcslogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = utcslogo.png; sourceTree = "<group>"; };
 		143E7DF81E132B710027E8CE /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		143E7DFA1E132B870027E8CE /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		143E7DFC1E132BB10027E8CE /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		143E7DFE1E1351BC0027E8CE /* source_logo_utcs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = source_logo_utcs.png; sourceTree = "<group>"; };
+		143E7E001E13645C0027E8CE /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		143E7E021E13646C0027E8CE /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		143E7E041E1364790027E8CE /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		143E7E061E136A870027E8CE /* WeekParserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekParserService.swift; sourceTree = "<group>"; };
 		145B20DD1E1302AA00CE2EEF /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		14A2279F1DC83FD200179655 /* FreeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A227A21DC83FD200179655 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,11 +100,11 @@
 		14189E4A1E11F423006AEF92 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				143E7DFE1E1351BC0027E8CE /* source_logo_utcs.png */,
 				143E7DF01E13200B0027E8CE /* tableau.png */,
 				14189E4B1E11F448006AEF92 /* hot-dog.png */,
 				14189E4D1E11F454006AEF92 /* shirt.png */,
 				14189E4F1E11F459006AEF92 /* resume.png */,
-				143E7DF61E13279D0027E8CE /* utcslogo.png */,
 				143E7DF81E132B710027E8CE /* compass.png */,
 				143E7DFA1E132B870027E8CE /* calendar.png */,
 				143E7DFC1E132BB10027E8CE /* flag.png */,
@@ -116,6 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				145B20DD1E1302AA00CE2EEF /* Event.swift */,
+				143E7E001E13645C0027E8CE /* Week.swift */,
+				143E7E021E13646C0027E8CE /* Sponsor.swift */,
+				143E7E041E1364790027E8CE /* Source.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -181,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				142A1F2E1DC84A5400C605B8 /* RestApiManager.swift */,
+				143E7E061E136A870027E8CE /* WeekParserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -293,7 +305,7 @@
 				14189E501E11F459006AEF92 /* resume.png in Resources */,
 				143E7DF11E13200B0027E8CE /* tableau.png in Resources */,
 				14189E4C1E11F448006AEF92 /* hot-dog.png in Resources */,
-				143E7DF71E13279D0027E8CE /* utcslogo.png in Resources */,
+				143E7DFF1E1351BC0027E8CE /* source_logo_utcs.png in Resources */,
 				14A227B01DC83FD200179655 /* LaunchScreen.storyboard in Resources */,
 				14189E4E1E11F454006AEF92 /* shirt.png in Resources */,
 				14A227AD1DC83FD200179655 /* Assets.xcassets in Resources */,
@@ -366,11 +378,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				143E7E031E13646C0027E8CE /* Sponsor.swift in Sources */,
 				145B20DE1E1302AA00CE2EEF /* Event.swift in Sources */,
 				14A2B7571E0F8E210016801F /* EventDetailsViewController.swift in Sources */,
 				14A227C61DC8425200179655 /* MainTableViewController.swift in Sources */,
+				143E7E071E136A870027E8CE /* WeekParserService.swift in Sources */,
+				143E7E051E1364790027E8CE /* Source.swift in Sources */,
 				14A227A51DC83FD200179655 /* ViewController.swift in Sources */,
 				14A227AB1DC83FD200179655 /* FreeFinder.xcdatamodeld in Sources */,
+				143E7E011E13645C0027E8CE /* Week.swift in Sources */,
 				14189E531E11F670006AEF92 /* EventTableViewCell.swift in Sources */,
 				142A1F2F1DC84A5400C605B8 /* RestApiManager.swift in Sources */,
 				14A227A31DC83FD200179655 /* AppDelegate.swift in Sources */,

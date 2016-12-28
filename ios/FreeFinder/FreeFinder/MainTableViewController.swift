@@ -13,11 +13,14 @@ import JSONJoy
 class MainTableViewController: UITableViewController {
     
     var events: [Event] = [Event]()
+    var weeks: [Week] = [Week]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshControl?.addTarget(self, action: #selector(MainTableViewController.handleRefresh(refreshControl:)), for: .valueChanged)
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Test string!")
+        
+        
         
         RestApiManager.shared.getEvents(completion: { data in
             for index in 0...data["events"].count - 1 {
@@ -29,8 +32,9 @@ class MainTableViewController: UITableViewController {
                     print("ERROR: Unable to parse JSON")
                 }
             }
+            self.weeks = WeekParserService.shared.getEventsByWeeks(events: self.events)
             self.tableView.reloadData()
-            print(self.events)
+//            print(self.events)
         })
         
         // Uncomment the following line to preserve selection between presentations
@@ -48,30 +52,35 @@ class MainTableViewController: UITableViewController {
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
+        refreshControl.endRefreshing()
         
         print("REfereshing")
         self.tableView.reloadData()
-        refreshControl.endRefreshing()
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return weeks.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return weeks[section].displayName
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return events.count
+        return weeks[section].events.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
         
-        cell.eventNameLabel.text = events[indexPath.item].eventTitlePrint
-        cell.eventSecondaryLabel.text = events[indexPath.item].startTimePrint
-        cell.eventLocationLabel.text = events[indexPath.item].location
+        cell.eventNameLabel.text = weeks[indexPath.section].events[indexPath.item].eventTitlePrint
+        cell.eventSecondaryLabel.text = weeks[indexPath.section].events[indexPath.item].startTimePrint
+        cell.eventLocationLabel.text = weeks[indexPath.section].events[indexPath.item].location
         
         return cell
     }
@@ -121,7 +130,9 @@ class MainTableViewController: UITableViewController {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
-        (segue.destination as! EventDetailsViewController).event = events[(self.tableView.indexPath(for: sender as! UITableViewCell)?.item)!]
+        
+        let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)!
+        (segue.destination as! EventDetailsViewController).event = weeks[indexPath.section].events[indexPath.item]
         
     }
 
